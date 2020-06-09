@@ -58,7 +58,7 @@
 //===========================================================================
 
 // Core XY
-//#define SAPPHIRE_PRO
+#define SAPPHIRE_PRO
 //#define SAPPHIRE_PLUS
 
 //Cartesian
@@ -557,9 +557,9 @@
 
   #if ENABLED(SAPPHIRE_PRO)
     //Sapphire Pro
-    #define DEFAULT_Kp 14.21
-    #define DEFAULT_Ki 0.88
-    #define DEFAULT_Kd 57.26
+    #define DEFAULT_Kp 11.55
+    #define DEFAULT_Ki 0.60
+    #define DEFAULT_Kd 55.57
   #elif ENABLED(SAPPHIRE_PLUS)
     //Sapphire Plus
     #define DEFAULT_Kp 15.30
@@ -617,9 +617,9 @@
 
 #if ENABLED(SAPPHIRE_PRO)
     //Sapphire Pro
-    #define DEFAULT_bedKp 21.37
-    #define DEFAULT_bedKi 3.29
-    #define DEFAULT_bedKd 92.53
+    #define DEFAULT_bedKp 14.94
+    #define DEFAULT_bedKi 2.91
+    #define DEFAULT_bedKd 51.11
   #elif ENABLED(SAPPHIRE_PLUS)
     //Sapphire Plus
     #define DEFAULT_bedKp 45.0
@@ -824,15 +824,15 @@
  */
 #if ENABLED(SAPPHIRE_PRO)
     //Sapphire Pro
-    #define X_DRIVER_TYPE  TMC2208_STANDALONE
-    #define Y_DRIVER_TYPE  TMC2208_STANDALONE
-    #define Z_DRIVER_TYPE  A4988
+    #define X_DRIVER_TYPE  TMC2209
+    #define Y_DRIVER_TYPE  TMC2209
+    #define Z_DRIVER_TYPE  TMC2209
     //#define X2_DRIVER_TYPE A4988
     //#define Y2_DRIVER_TYPE A4988
     //#define Z2_DRIVER_TYPE A4988
     //#define Z3_DRIVER_TYPE A4988
     //#define Z4_DRIVER_TYPE A4988
-    #define E0_DRIVER_TYPE A4988
+    #define E0_DRIVER_TYPE TMC2209
     //#define E1_DRIVER_TYPE A4988
     //#define E2_DRIVER_TYPE A4988
     //#define E3_DRIVER_TYPE A4988
@@ -984,11 +984,11 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 200, 20000}
+#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 200, 2000}
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
-  #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 20000 } // ...or, set your own edit limits
+  #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 2000 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1309,12 +1309,12 @@
     // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
     #define INVERT_X_DIR true
     #define INVERT_Y_DIR true
-    #define INVERT_Z_DIR false
+    #define INVERT_Z_DIR true
 
     // @section extruder
 
     // For direct drive extruder v9 set to true, for geared extruder set to false.
-    #define INVERT_E0_DIR false
+    #define INVERT_E0_DIR true
     #define INVERT_E1_DIR false
     #define INVERT_E2_DIR false
     #define INVERT_E3_DIR false
@@ -1412,7 +1412,7 @@
     #define Z_MIN_POS 0
     #define X_MAX_POS X_BED_SIZE
     #define Y_MAX_POS Y_BED_SIZE
-    #define Z_MAX_POS 230
+    #define Z_MAX_POS 210
   #elif ENABLED(SAPPHIRE_PLUS)
     //Sapphire Plus
     //No Preset
@@ -1508,7 +1508,7 @@
 #endif
 
 #if EITHER(MIN_SOFTWARE_ENDSTOPS, MAX_SOFTWARE_ENDSTOPS)
-  //#define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
+  #define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
 #endif
 
 /**
@@ -1519,7 +1519,7 @@
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  * By default the firmware assumes HIGH=FILAMENT PRESENT.
  */
-#define FILAMENT_RUNOUT_SENSOR
+//#define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define NUM_RUNOUT_SENSORS   1     // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
   #define FIL_RUNOUT_INVERTING false // Set to true to invert the logic of the sensor.
