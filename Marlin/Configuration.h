@@ -59,7 +59,7 @@
 //===========================================================================
 
 // Core XY
-//#define SAPPHIRE_PRO
+#define SAPPHIRE_PRO
 //#define SAPPHIRE_PLUS
 
 // Cartesian
@@ -72,17 +72,17 @@
 // Probe Settings
 
 
-//#define BL_TOUCH                 // Enable BLTouch Settings
+#define BL_TOUCH                 // Enable BLTouch Settings
 #if ENABLED(BL_TOUCH)
   //#define LOW_RES                  // 3x3 Grid 
-  //#define HI_RES                   // 5x5 Grid
+  #define HI_RES                     // 5x5 Grid
   //#define BL_TOUCH_HIGH_SPEED      // Probe Pin does not pull in when moving in XY. Use at your own risk!
 #endif
   
 
 // Specify a Probe Offsetposition { X, Y, Z }
 #define OFFSET_X 0              // - Left   |   Right +
-#define OFFSET_Y 0              // - Front  |   Back +
+#define OFFSET_Y -39            // - Front  |   Back +
 #define OFFSET_Z 0              // - Nozzle ist Higher as the Probe 0 Point |  + Really? you did somthing wrong.
 
 
@@ -119,17 +119,17 @@
 //          TMC2208, TMC2208_STANDALONE, TMC2209, TMC2209_STANDALONE,
 //          TMC26X,  TMC26X_STANDALONE,  TMC2660, TMC2660_STANDALONE,
 //          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
-//#define Custom_Stepper_Drivers
+#define Custom_Stepper_Drivers
 #if ENABLED(Custom_Stepper_Drivers)
-  #define DRIVER_X TMC2209_STANDALONE
-  #define DRIVER_Y TMC2209_STANDALONE
-  #define DRIVER_Z TMC2209_STANDALONE
-  #define DRIVER_E0 TMC2209_STANDALONE
+  #define DRIVER_X TMC2209
+  #define DRIVER_Y TMC2209
+  #define DRIVER_Z TMC2209
+  #define DRIVER_E0 TMC2209
   //#define DRIVER_E1 TMC2209_STANDALONE
   //#define DRIVER_Z2 TMC2209_STANDALONE
 
-  //#define INVERT_X
-  //#define INVERT_Y
+  #define INVERT_X
+  #define INVERT_Y
   #define INVERT_Z 
   #define INVERT_E0 
   //#define INVERT_Z2
