@@ -74,7 +74,7 @@
 
 #define BL_TOUCH                 // Enable BLTouch Settings
 #if ENABLED(BL_TOUCH)
-  //#define LOW_RES                  // 3x3 Grid
+  #define LOW_RES                    // 3x3 Grid
   //#define HI_RES                   // 5x5 Grid
   //#define MAX_RES                  // 7x7 Grid
   //#define BL_TOUCH_HIGH_SPEED      // Only for BLTouch 3.0 and 3.1 Probe Pin does not pull in when moving in XY. Use at your own risk!
@@ -83,7 +83,7 @@
 
 // Specify a Probe Offsetposition { X, Y, Z }
 #define OFFSET_X 0              // - Left   |   Right +
-#define OFFSET_Y -39            // - Front  |   Back +
+#define OFFSET_Y -45            // - Front  |   Back +
 #define OFFSET_Z 0              // - Nozzle ist Higher as the Probe 0 Point |  + Really? you did somthing wrong.
 
 
@@ -129,8 +129,8 @@
   //#define DRIVER_E1 TMC2209_STANDALONE
   //#define DRIVER_Z2 TMC2209_STANDALONE
 
-  #define INVERT_X
-  #define INVERT_Y
+  //#define INVERT_X
+  //#define INVERT_Y
   #define INVERT_Z 
   #define INVERT_E0 
   //#define INVERT_Z2
@@ -578,7 +578,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 5
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
