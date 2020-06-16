@@ -104,7 +104,7 @@
 
 // Hotend Fan Auto ON
 // Use Hotend 2 pins to control Hotend fan
-//#define HOTEND_AUTO_FAN
+#define HOTEND_AUTO_FAN
 
 // Optical Endstops
 //#define OPTICAL_ENDSTOPS_XY
@@ -653,9 +653,9 @@
 
   #if ENABLED(SAPPHIRE_PRO)
     //Sapphire Pro
-    #define DEFAULT_Kp 14.21
-    #define DEFAULT_Ki 0.88
-    #define DEFAULT_Kd 57.26
+    #define DEFAULT_Kp 17.42
+    #define DEFAULT_Ki 1.65
+    #define DEFAULT_Kd 46.09    
   #elif ENABLED(SAPPHIRE_PLUS)
     //Sapphire Plus
     #define DEFAULT_Kp 15.30
@@ -712,9 +712,9 @@
 
   #if ENABLED(SAPPHIRE_PRO)
     //Sapphire Pro
-    #define DEFAULT_bedKp 21.37
-    #define DEFAULT_bedKi 3.29
-    #define DEFAULT_bedKd 92.53
+    #define DEFAULT_bedKp 23.98
+    #define DEFAULT_bedKi 4.27
+    #define DEFAULT_bedKd 89.70
   #elif ENABLED(SAPPHIRE_PLUS)
     //Sapphire Plus
     #define DEFAULT_bedKp 45.0
