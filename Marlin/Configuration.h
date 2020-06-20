@@ -156,7 +156,7 @@
   #define Z_BED_SIZE_CUSTOM 200
 #endif
 
-// Custom PID Settings
+// Custom PID & TEMP SENSOR Settings  
 // Normally no change necessary, unless it does not maintain the set temperature + -1 °
 #define CUSTOM_HOTEND_PID // HOTEND
   #if ENABLED(CUSTOM_HOTEND_PID)
@@ -171,6 +171,8 @@
     #define CUSTOM_BED_Ki 4.27
     #define CUSTOM_BED_Kd 89.70
   #endif
+
+#define CUSTOM_TEMP_SENSOR_0 5  // 5 : 100K thermistor - ATC Semitec 104GT-2/104NT-4-R025H42G (Used in ParCan, J-Head, and E3D) (4.7k pullup)
 
 //===========================================================================
 //============================= Display language selection===================
@@ -610,7 +612,13 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 5
+#if ENABLED ()
+  #define TEMP_SENSOR_0 CUSTOM_TEMP_SENSOR_0
+#else
+  #define TEMP_SENSOR_0 1
+#endif
+
+#define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -982,7 +990,7 @@
     #define E0_DRIVER_TYPE A4988
     //#define E1_DRIVER_TYPE A4988
   #elif ENABLED(CUSTOM_STEPPER_DRIVERS)
-    //CUSTOM_STEPPER_DRIVERS
+    //Custom_Stepper_Drivers
     #define X_DRIVER_TYPE  DRIVER_X
     #define Y_DRIVER_TYPE  DRIVER_Y
     #define Z_DRIVER_TYPE  DRIVER_Z
@@ -1912,7 +1920,7 @@
  * Normally G28 leaves leveling disabled on completion. Enable
  * this option to have G28 restore the prior leveling state.
  */
-//#define RESTORE_LEVELING_AFTER_G28
+#define RESTORE_LEVELING_AFTER_G28
 
 /**
  * Enable detailed logging of G28, G29, M48, etc.
