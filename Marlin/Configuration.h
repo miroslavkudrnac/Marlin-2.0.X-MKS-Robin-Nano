@@ -159,20 +159,23 @@
 // Custom PID & TEMP SENSOR Settings  
 // Normally no change necessary, unless it does not maintain the set temperature + -1 °
 #define CUSTOM_HOTEND_PID // HOTEND
-  #if ENABLED(CUSTOM_HOTEND_PID)
-    #define CUSTOM_Kp 17.42
-    #define CUSTOM_Ki 1.65
-    #define CUSTOM_Kd 46.09
-  #endif
+#if ENABLED(CUSTOM_HOTEND_PID)
+  #define CUSTOM_Kp 17.42
+  #define CUSTOM_Ki 1.65
+  #define CUSTOM_Kd 46.09
+#endif
 
 #define CUSTOM_BED_PID    // HEATED BED
-  #if ENABLED(CUSTOM_BED_PID)
-    #define CUSTOM_BED_Kp 23.98
-    #define CUSTOM_BED_Ki 4.27
-    #define CUSTOM_BED_Kd 89.70
-  #endif
+#if ENABLED(CUSTOM_BED_PID)
+  #define CUSTOM_BED_Kp 23.98
+  #define CUSTOM_BED_Ki 4.27
+  #define CUSTOM_BED_Kd 89.70
+#endif
 
-#define CUSTOM_TEMP_SENSOR_0 5  // 5 : 100K thermistor - ATC Semitec 104GT-2/104NT-4-R025H42G (Used in ParCan, J-Head, and E3D) (4.7k pullup)
+#define CUSTOM_TEMP_SENSOR
+#if ENABLED(CUSTOM_TEMP_SENSOR)
+  #define CUSTOM_TEMP_SENSOR_0 5  // 5 : 100K thermistor - ATC Semitec 104GT-2/104NT-4-R025H42G (Used in ParCan, J-Head, and E3D) (4.7k pullup)
+#endif
 
 //===========================================================================
 //============================= Display language selection===================
@@ -612,13 +615,12 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#if ENABLED ()
+#if ENABLED(CUSTOM_TEMP_SENSOR)
   #define TEMP_SENSOR_0 CUSTOM_TEMP_SENSOR_0
 #else
   #define TEMP_SENSOR_0 1
 #endif
 
-#define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
