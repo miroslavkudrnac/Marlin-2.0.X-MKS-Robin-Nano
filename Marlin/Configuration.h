@@ -313,7 +313,7 @@
 
 // Show the bitmap in Marlin/_Statusscreen.h on the status screen.
 #if ANY(SAPPHIRE_PRO, SAPPHIRE_PLUS, BLUER)
-  #define CUSTOM_STATUS_SCREEN_IMAGE
+  //#define CUSTOM_STATUS_SCREEN_IMAGE
 #else
   //#define CUSTOM_STATUS_SCREEN_IMAGE
 #endif
